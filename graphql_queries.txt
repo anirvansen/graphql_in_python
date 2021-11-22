@@ -1,0 +1,87 @@
+query getAllUsers{
+  allUsers {
+    id
+    email
+  }
+}
+
+
+query getAllPosts {
+  allPosts{
+    id
+    title
+    content
+    lastUpdated
+    datePosted
+    author {
+      name
+      email
+    }
+  }
+}
+
+
+mutation addPost {
+  addPost (authorId :"2",
+    				title :"superb post",
+    			  content :"superb content"){
+
+    post {
+      title
+    }
+    ok
+
+  }
+}
+
+
+mutation editPost  {
+  editPost(postId : "2",
+          content : "some edited content again!!!!!!") {
+    post {
+      title
+      content
+    }
+    ok
+
+  }
+}
+
+
+mutation deletePost{
+  deletePost(postId : "1") {
+    ok
+  }
+}
+
+
+mutation addUser{
+
+  addUser(email : "some@some.com",
+    			name : "anirvan",
+    			password:"supersecretpassword") {
+    user {
+      email
+      id
+    }
+    ok
+  }
+}
+
+mutation deleteUser {
+  deleteUser(Id : "3") {
+    user {
+      name
+    }
+  }
+}
+
+
+mutation editUser {
+  editUser(Id : "1", password : "changed_password") {
+    user {
+      name
+      email
+    }
+  }
+}
